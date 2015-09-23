@@ -1,5 +1,6 @@
 import networkx as nx
 import numpy as np
+from scipy.optimize import minimize
 
 G2 = nx.fast_gnp_random_graph(200,.8)
 
@@ -24,6 +25,19 @@ for node in G2.nodes():
         else:
             L.append(i[0])
     D.remove(node)
-    print(D)
-    print(L)
+    #print(D)
+    #print(L)
     break
+
+# This will become F(w) function
+def f (w=2, reg=1, D=[], L=[]):
+    return w**2 + reg * np.sum([1,2,3])
+
+# This will become F'(w)
+def f_der(w):
+    return 2*w + np.sum([1,2,3])
+
+# Minimize using BFGS to find optimal W
+res = minimize(f, 2, method='BFGS', jac=f_der, options={'disp': True})
+
+print(res)
