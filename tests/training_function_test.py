@@ -16,4 +16,4 @@ class TestTrainingFunction(object):
         assert_equal(self.func.initial_w(), [])
 
     def test_feature_vector(self):
-        assert_equal(self.func.feature_vector(), [])
+        assert_equal(self.func.feature_vector(), [[]])
