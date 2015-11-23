@@ -7,7 +7,7 @@ class TestTrainingFunction(object):
         self.func = TrainingFunction(C=[0,1,1,1])
 
     def teardown(self):
-        """This method is run once after _each_ test method is executed"""
+        "Teardown"
 
     def test_training_nodes(self):
         assert_equal(self.func.training_nodes(), [0,1,1,1])
@@ -16,4 +16,4 @@ class TestTrainingFunction(object):
         assert_equal(self.func.initial_w(), [])
 
     def test_feature_vector(self):
-        assert_equal(self.func.feature_vector(), [[]])
+        assert_equal(self.func.feature_vector(), [[[]]])

@@ -12,6 +12,6 @@ def square_loss_test_zero():
     y = 1
     assert_equal(square_loss(y, -1), 0)
 
-def squaer_loss_der_test():
+def squaer_loss_derivative_test():
     y = 1
-    assert_equal(square_loss_der(y, test_diff()), 2)
+    assert_equal(square_loss_derivative(y, test_diff()), 2)

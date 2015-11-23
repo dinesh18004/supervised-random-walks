@@ -1,7 +1,6 @@
 import numpy as np
-# Sample edge strength function
-# Must be differentiable wrt to w
+# Edge strength function
 
 def edge_strength(psi, w):
-    alpha = np.multiply(psi, w)
+    alpha = np.multiply(psi, w).sum(axis=3)[0,:,:]
     return alpha

@@ -10,7 +10,7 @@ from scipy.optimize import minimize
 
 class TrainingFunction(object):
 
-    def __init__(self, w = [], C = [], psi = [[]]):
+    def __init__(self, w = [], C = [], psi = [[[]]]):
         self.w = w
         self.nodes = C
         self.psi = psi

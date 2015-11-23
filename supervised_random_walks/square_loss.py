@@ -9,5 +9,5 @@ def square_loss(y, delta):
 # Input y, square loss value
 # Returns derivative of square loss
 
-def square_loss_der(y, delta):
+def square_loss_derivative(y, delta):
     return 2*y*((y*delta)-1)
