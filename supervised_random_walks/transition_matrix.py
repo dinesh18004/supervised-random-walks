@@ -2,5 +2,6 @@
 import numpy as np
 
 def transition_matrix(A):
-    Q = A
-    return Q
+    row_sum = A.sum(axis=1)
+    q_prime = np.divide(A, row_sum)
+    return q_prime
