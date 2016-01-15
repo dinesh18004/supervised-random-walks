@@ -15,7 +15,10 @@ class TestTransitonMatrix(object):
         assert_equal(self.stm.shape, (4,4))
 
     def test_stochastic_transition_matrix(self):
-        v = self.stm == [[0, 0.2, 0.4, 0.4],[0.2, 0, 0.4, 0.4],[0.4, 0.4 ,0, 0.2],[0.4, 0.4, 0.2, 0]]
+        v = self.stm == [[0, 0.2, 0.4, 0.4],
+                         [0.2, 0, 0.4, 0.4],
+                         [0.4, 0.4, 0, 0.2],
+                         [0.4, 0.4, 0.2, 0]]
         assert_equal(v.all(), True)
 
     def test_stochastic_transition_matrix_returns_stochastic_matrix(self):

@@ -6,7 +6,7 @@ from scipy.optimize import minimize
 # w = initial w values
 # C = [1xn] adjacency list for node s
 # psi = Feature vector containing adjacency list features
-# Returns w*, vector containing minimum w
+# Returns w*, vector containing minimum w for each parameter
 
 class TrainingFunction(object):
 

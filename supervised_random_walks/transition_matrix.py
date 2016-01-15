@@ -11,5 +11,5 @@ def stochastic_transition_matrix(A):
 # Input Q' and some alpha (Probablity of restart to node s)
 # Output Q, transition matrix
 def final_transition_matrix(Q_prime, alpha=0.2):
-    Q = np.multiply(Q_prime, (1-alpha))
+    Q = np.multiply(Q_prime, (1 - alpha))
     return Q
