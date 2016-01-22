@@ -10,9 +10,9 @@ def adjacency_matrix():
     return am
 
 def transition_matrix():
-    stm = stochastic_transition_matrix(np.matrix([[0, 1, 2],
-                                                  [1, 0, 2],
-                                                  [2, 2, 0]]))
+    stm = stochastic_transition_matrix(np.matrix([[0, 1, 8],
+                                                  [2, 0, 0],
+                                                  [2, 0, 0]]))
     return stm
 
 def initialize_page_rank_test_returns_a_two_dimensional_array():
@@ -24,9 +24,10 @@ def initialize_partial_derivatives_test_returns_zeroes_matrix():
     assert_equal(v.all(),True)
 
 def test_page_rank_vector():
+    #raise Exception(final_transition_matrix(transition_matrix(), alpha=0.3))
     Q = final_transition_matrix(transition_matrix(), alpha=0.3)
     p = page_rank_vector(adjacency_matrix(), Q)
-    raise Exception(np.multiply(Q, p))
+    #raise Exception(p)
     #raise Exception(page_rank_vector(adjacency_matrix(), Q))
 
 def test_coverged_returns_true_if_value_is_less_then_epsilon():

@@ -1,4 +1,5 @@
 import numpy as np
+from copy import copy
 
 # Initialize PageRank scores p
 
@@ -17,16 +18,17 @@ def page_rank_vector(adjacency_matrix, Q):
     n = len(adjacency_matrix)
     p = initialize_page_rank(n)
     c = False
-    while not c:
-        p_new = p
+    while (not c and t < 11):
+        p_new = copy(p)
         t += 1
         for i in range(n):
-            p_new[i] = np.sum(p * Q[:,i])
-        c = all(converged(p, p_new))
+            p_new[i] = np.sum(np.multiply(p, Q[:,i]))
+        p_new = np.divide(p_new, np.sum(p_new))
+        c = converged(p, p_new)
         p = p_new
     return p
 
 # Covergence method
 # Takes two p stationary matrix and determines if they are the same based on epsilon
-def converged(p1, p2, epsilon = 10**-12):
-    return np.abs(p1 - p2) <= epsilon
+def converged(p1, p2, epsilon = 1e-12):
+    return np.max(np.abs(p1 - p2)) <= epsilon

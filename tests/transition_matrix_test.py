@@ -1,5 +1,6 @@
 from nose.tools import *
 from supervised_random_walks.transition_matrix import *
+from supervised_random_walks.edge_strength import *
 
 class TestTransitonMatrix(object):
     def setup(self):
@@ -31,3 +32,17 @@ class TestTransitonMatrix(object):
         row_sum = Q.sum(axis=1) + 0.3
         v = row_sum == [[1],[1],[1],[1]]
         assert_equal(v.all(),True)
+
+    def test_final_transition_matrix_derivative(self):
+        A = np.matrix([[0, 2, 2],
+                       [2, 0, 2],
+                       [2, 2, 0]])
+        Q_prime = stochastic_transition_matrix(A)
+        Q = final_transition_matrix(Q_prime, alpha=0.3)
+        psi =  np.array([[
+                         [[0,0],[1,1],[1,1]],
+                         [[1,1],[0,0],[1,1]],
+                         [[1,1],[1,1],[0,0]]
+                        ]])
+        dA = edge_strength_derivative(psi, A)
+        raise Exception(final_transition_matrix_derivative(Q, A, dA))
