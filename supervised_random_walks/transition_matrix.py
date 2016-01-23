@@ -26,11 +26,7 @@ def final_transition_matrix_derivative(Q, A, dA, alpha = 0.2):
     Q_derivative = np.zeros((n,n,m))
     for i in range(m):
         sum_edge_strength_derivative = np.transpose(dA[:,:,i].sum(axis=2))
-        #raise Exception(sum_edge_strength_derivative)
         rep_sum_edge_strength_derivative = np.matlib.repmat(sum_edge_strength_derivative, 1, n)
-        #raise Exception(rep_sum_edge_strength_derivative)
         temp = (rep_sum_edge_strength * dA[0][:,:,i]) - (A * rep_sum_edge_strength_derivative)
-        #raise Exception(temp)
         Q_derivative[:,:,i] = temp / denominator
-
     return Q_derivative

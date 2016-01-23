@@ -5,8 +5,8 @@ from supervised_random_walks.edge_strength import *
 # This will become our sample feature vector nxnxm
 def psi():
     return np.array([[
-                     [[2,1],[1,1]],
-                     [[1,1],[2,3]]
+                     [[1,1],[1,1]],
+                     [[1,1],[1,1]]
                     ]])
 
 def w_func():

@@ -45,4 +45,5 @@ class TestTransitonMatrix(object):
                          [[1,1],[1,1],[0,0]]
                         ]])
         dA = edge_strength_derivative(psi, A)
-        raise Exception(final_transition_matrix_derivative(Q, A, dA))
+        #raise Exception(dA)
+        #raise Exception(final_transition_matrix_derivative(Q, A, dA))

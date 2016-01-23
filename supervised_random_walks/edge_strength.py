@@ -6,7 +6,7 @@ import numpy as np
 # alpha(ij) = SUM (i = 1 to |w|) psi(i) * w(i)
 def edge_strength(psi, w):
     alpha = np.multiply(psi, w).sum(axis=3)[0,:,:]
-    return alpha
+    return np.matrix(alpha)
 
 # Derivative of alpha wrt to w
 # A: Edge strength matrix (nxn)
